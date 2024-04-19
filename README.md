@@ -31,11 +31,6 @@ Grafana Mimir is an open source software project that provides a scalable long-t
 
 6.NGINX: NGINX is a popular open-source web server and reverse proxy server. In this setup, NGINX can be used as a reverse proxy to route HTTP requests to different services, such as Prometheus, Grafana, or Mimir. NGINX can also provide additional features like load balancing, caching, and SSL termination.
 
-In a typical setup, Prometheus collects metrics from various sources, including cAdvisor for container metrics, and pushes them to nginx. Nginx then fowards these metrics to each of the mimir instances configured in nginx.conf, all of these metrics are stored inside the object storage Minio.And once the metrics are stored it is then requested via adding a prometheus data source in grafana dashboard along with url http://load-balancer:9009/prometheus ,also add the custom headers for authentication(X-Scope-OrgID,value=demo).
-
-For single instance of mimir we can also follow the official documentation of grafana mimir(https://grafana.com/docs/mimir/latest/get-started/).
-
-This setup enables users to monitor system performance, analyze metrics, derive insights from data, and visualize trends using a combination of monitoring tools, storage solutions, analytics platforms, and visualization tools.
 
 ## SETUP OF PROJECT
 
@@ -47,6 +42,15 @@ Start running your local setup with the following Docker command:
 docker-compose up -d
 ```
 Once the docker compose file runs check wether all the targets in prometheus are UP, which indicates that prometheus is able to scrape all the metrics from its targets properly.
+
+For multiple instance :In a typical setup, Prometheus collects metrics from various sources, including cAdvisor for container metrics, and pushes them to nginx. Nginx then fowards these metrics to each of the mimir instances configured in nginx.conf, all of these metrics are stored inside the object storage Minio.And once the metrics are stored it is then requested via adding a prometheus data source in grafana dashboard along with url http://load-balancer:9009/prometheus ,also add the custom headers for authentication(X-Scope-OrgID,value=demo).
+
+For single instance of mimir we can also follow the official documentation of grafana mimir(https://grafana.com/docs/mimir/latest/get-started/) .In garafana.ini page add the username,password of the smtp mailosaur.net which can be created by the below steps:
+- first create the temp mail(https://temp-mail.org/en/)
+- then create a free account at mailosaur(https://mailosaur.com/app)
+- in the inboxes click on SMTP and POP3 section and there we can obtain the username and password .
+
+This setup enables users to monitor system performance, analyze metrics, derive insights from data, and visualize trends using a combination of monitoring tools, storage solutions, analytics platforms, and visualization tools.
 
 ### Grafana Alerting
 
