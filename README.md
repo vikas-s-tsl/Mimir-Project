@@ -33,6 +33,8 @@ Grafana Mimir is an open source software project that provides a scalable long-t
 
 In a typical setup, Prometheus collects metrics from various sources, including cAdvisor for container metrics, and pushes them to nginx. Nginx then fowards these metrics to each of the mimir instances configured in nginx.conf, all of these metrics are stored inside the object storage Minio.And once the metrics are stored it is then requested via adding a prometheus data source in grafana dashboard along with url http://load-balancer:9009/prometheus ,also add the custom headers for authentication(X-Scope-OrgID,value=demo).
 
+For single instance of mimir we can follow thw official documentation of grafana mimir(https://grafana.com/docs/mimir/latest/get-started/).
+
 This setup enables users to monitor system performance, analyze metrics, derive insights from data, and visualize trends using a combination of monitoring tools, storage solutions, analytics platforms, and visualization tools.
 
 ## SETUP OF PROJECT
