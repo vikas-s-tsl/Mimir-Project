@@ -1,6 +1,8 @@
 
 target: all,alertmanager,overrides-exporter
 
+limits:
+  max_label_names_per_series: 50
 
 common:
   storage:
