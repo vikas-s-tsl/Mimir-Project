@@ -11,6 +11,10 @@ scrape_configs:
   - job_name: cadvisor
     static_configs:
       - targets: [cadvisor:8080]
+  - job_name: node
+    static_configs:
+      - targets: [node_exporter:9100]
+    
 
 remote_write:
   - url: http://load-balancer:9009/api/v1/push
