@@ -1,5 +1,5 @@
 # Mimir-Project
-Created a single instance and a multiple instance of mimir along with visualization use the same for setup below for VM(Ubuntu) also.
+Created a single instance and a multiple instance of mimir along with visualization use the same setup for VM(Ubuntu) also.
 # Working with Mimir
 
 Grafana Mimir is a distributed, horizontally scalable, and highly available long term storage for [Prometheus](https://prometheus.io).
